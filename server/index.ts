@@ -5,6 +5,10 @@ import { fileURLToPath } from "url";
 import { createServer as createViteServer, createLogger, type InlineConfig } from "vite";
 import { type Server } from "http";
 import { nanoid } from "nanoid";
+import dotenv from "dotenv";
+
+// Load environment variables from the .env file
+dotenv.config();
 
 import viteConfig from "../vite.config";
 
@@ -86,3 +90,15 @@ export function serveStatic(app: Express) {
     res.sendFile(path.resolve(distPath, "index.html"));
   });
 }
+
+// Get the port from environment variables or default to 5000
+const PORT = process.env.PORT || 5000;
+
+// Create the Express app and start the server
+const app: Express = express();
+
+const server: Server = app.listen(PORT, () => {
+  log(`Server is running on http://localhost:${PORT}`, "server");
+});
+
+setupVite(app, server);
