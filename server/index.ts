@@ -7,7 +7,6 @@ import { type Server } from "http";
 import { nanoid } from "nanoid";
 import dotenv from "dotenv";
 
-// Load environment variables from the .env file
 dotenv.config();
 
 import viteConfig from "../vite.config";
@@ -28,11 +27,11 @@ export function log(message: string, source = "express") {
   console.log(`${formattedTime} [${source}] ${message}`);
 }
 
-export async function setupVite(app: Express, server: Server) {
+async function setupVite(app: Express, server: Server) {
   const serverOptions: InlineConfig["server"] = {
     middlewareMode: true,
     hmr: { server },
-    allowedHosts: true, // ✅ fixed earlier type error
+    allowedHosts: true,
   };
 
   const vite = await createViteServer({
@@ -59,7 +58,6 @@ export async function setupVite(app: Express, server: Server) {
 
       let template = await fs.promises.readFile(clientTemplate, "utf-8");
 
-      // add a cache-busting query param to the main.tsx import
       template = template.replace(
         `src="/src/main.tsx"`,
         `src="/src/main.tsx?v=${nanoid()}"`
@@ -74,8 +72,8 @@ export async function setupVite(app: Express, server: Server) {
   });
 }
 
-export function serveStatic(app: Express) {
-  const distPath = path.resolve(__dirname, "..", "dist", "public"); // ✅ updated path to dist/public
+function serveStatic(app: Express) {
+  const distPath = path.resolve(__dirname, "..", "dist", "public");
 
   if (!fs.existsSync(distPath)) {
     throw new Error(
@@ -85,20 +83,26 @@ export function serveStatic(app: Express) {
 
   app.use(express.static(distPath));
 
-  // Fallback to index.html for all non-static routes
   app.use("*", (_req, res) => {
     res.sendFile(path.resolve(distPath, "index.html"));
   });
 }
 
-// Get the port from environment variables or default to 5000
+// ⛳ Determine environment
+const isProduction = process.env.NODE_ENV === "production";
 const PORT = process.env.PORT || 5000;
 
-// Create the Express app and start the server
-const app: Express = express();
+async function startServer() {
+  const app: Express = express();
+  const server: Server = app.listen(PORT, () => {
+    log(`Server is running on http://localhost:${PORT}`, "server");
+  });
 
-const server: Server = app.listen(PORT, () => {
-  log(`Server is running on http://localhost:${PORT}`, "server");
-});
+  if (isProduction) {
+    serveStatic(app); // ✅ serve built client
+  } else {
+    await setupVite(app, server); // ✅ inject Vite dev middleware
+  }
+}
 
-setupVite(app, server);
+startServer();
