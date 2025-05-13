@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'BastligaOne';
+  src: url('/fonts/BrotherSignature-7BWnK.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Handwritting1';
+  src: url('/fonts/QEPrintVersion.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Heading1';
+  src: url('/fonts/Instink D.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Heading2';
+  src: url('/fonts/QEDavidReid.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🌞 Light mode (default) CSS variables */
+:root {
+  --primary:328, 100%, 72%; 
+ 
+  --foreground: 0, 0%, 10%;
+ 
+  /* You can add more variables like --card, --accent, etc. */
+}
+
+/* 🌙 Dark mode (using .dark class) */
+.dark {
+  --primary: 180, 100%, 70%; 
+  --background: 0, 0%, 8%;
+  --foreground: 0, 0%, 98%;
+  --border: 0, 0%, 30%;
+  /* Add more dark mode variables as needed */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}

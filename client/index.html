@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parbhansh | Portfolio</title>
+    <meta name="description" content="Professional portfolio showcasing projects and skills" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: hsl(var(--background, #f1f1f1));
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: hsl(var(--primary, #6366f1)); /* fallback to indigo-500 */
+      border-radius: 9999px;
+      border: 2px solid transparent;
+      background-clip: content-box;
+    }
+
+    
+
+    /* Optional: smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/128/4553/4553011.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- Script to handle title change on tab switch -->
+    <script>
+      const originalTitle = document.title;
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          document.title = "👋 Come back!";
+        } else {
+          document.title = originalTitle;
+        }
+      });
+    </script>
+
+<script>
+  // Create the button element
+  const scrollBtn = document.createElement('button');
+  scrollBtn.id = 'scrollToTopBtn';
+  scrollBtn.setAttribute('aria-label', 'Scroll to top');
+
+  // Style the button with JS
+  Object.assign(scrollBtn.style, {
+    position: 'fixed',
+    top: '-60px', // start off the screen (above)
+    right: '20px',
+    width: '50px',
+    height: '50px',
+    border: 'none',
+    borderRadius: '50%',
+    backgroundColor: 'transparent',
+    cursor: 'pointer',
+    opacity: '0',
+    transition: 'top 0.6s ease, opacity 0.4s ease', // Falling effect with slow transition
+    zIndex: '9999',
+    padding: '10px'
+  });
+
+  // Add PNG icon
+  const icon = document.createElement('img');
+  icon.src = 'https://cdn-icons-png.flaticon.com/128/1634/1634156.png'; // chevron up icon
+  icon.alt = 'Up';
+  icon.style.width = '100%';
+  icon.style.height = '100%';
+  scrollBtn.appendChild(icon);
+
+  // Add to body
+  document.body.appendChild(scrollBtn);
+
+  // Show/hide on scroll
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+      scrollBtn.style.top = 'calc(100% - 70px)'; // Falls from the top and stops just above the bottom
+      scrollBtn.style.opacity = '1';
+    } else {
+      scrollBtn.style.top = '-60px'; // Hides above the screen
+      scrollBtn.style.opacity = '0';
+    }
+  });
+
+  // Scroll to top on click
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+    <!-- Your main app script -->
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
