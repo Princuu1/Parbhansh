@@ -10,6 +10,9 @@
     "typecheck": "tsc",
     "db:push": "drizzle-kit push"
   },
+  "engines": {
+    "node": "24.x"
+  },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
     "@jridgewell/trace-mapping": "^0.3.25",
