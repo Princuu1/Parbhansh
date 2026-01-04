@@ -4,7 +4,7 @@ import { sendContactEmail } from "../server/services/email";
 
 /* ===== FORCE NODE RUNTIME ===== */
 export const config = {
-  runtime: "nodejs20.x",
+  runtime: "nodejs"
 };
 
 export default async function handler(
