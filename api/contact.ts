@@ -6,6 +6,12 @@ export default async function handler(
   req: VercelRequest,
   res: VercelResponse
 ) {
+  /* ===== CORS PREFLIGHT ===== */
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
+  /* ===== ALLOW ONLY POST ===== */
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method not allowed" });
   }
@@ -21,6 +27,7 @@ export default async function handler(
 
     return res.status(200).json({ success: true });
   } catch (error: any) {
+    console.error("API error:", error);
     return res.status(400).json({ message: error.message });
   }
 }
