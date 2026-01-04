@@ -3,15 +3,19 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-if (
-  !process.env.SENDGRID_API_KEY ||
-  !process.env.ADMIN_EMAIL ||
-  !process.env.SENDER_EMAIL
-) {
+/* ================= ENV VALIDATION ================= */
+
+const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
+const SENDER_EMAIL = process.env.SENDER_EMAIL;
+
+if (!SENDGRID_API_KEY || !ADMIN_EMAIL || !SENDER_EMAIL) {
   throw new Error("Missing SendGrid environment variables");
 }
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+sgMail.setApiKey(SENDGRID_API_KEY);
+
+/* ================= TYPES ================= */
 
 interface EmailData {
   name: string;
@@ -19,15 +23,18 @@ interface EmailData {
   message: string;
 }
 
+/* ================= MAIN FUNCTION ================= */
+
 export async function sendContactEmail(data: EmailData): Promise<void> {
   try {
-    /* ================= ADMIN EMAIL ================= */
+    /* ========== ADMIN EMAIL ========== */
     await sgMail.send({
-      to: process.env.ADMIN_EMAIL,
-      from: process.env.SENDER_EMAIL,
+      to: ADMIN_EMAIL,
+      from: SENDER_EMAIL,
       replyTo: data.email,
       subject: `New Contact Form Message from ${data.name}`,
       html: `
+<!DOCTYPE html>
 <html>
 <head>
   <style>
@@ -50,10 +57,6 @@ export async function sendContactEmail(data: EmailData): Promise<void> {
       color: white;
       padding: 24px;
       text-align: center;
-    }
-    .header h2 {
-      margin: 0;
-      font-size: 24px;
     }
     .content {
       padding: 30px;
@@ -108,13 +111,14 @@ export async function sendContactEmail(data: EmailData): Promise<void> {
       `,
     });
 
-    /* ================= USER CONFIRMATION EMAIL ================= */
+    /* ========== USER CONFIRMATION EMAIL ========== */
     await sgMail.send({
       to: data.email,
-      from: process.env.SENDER_EMAIL,
-      replyTo: process.env.ADMIN_EMAIL,
+      from: SENDER_EMAIL,
+      replyTo: ADMIN_EMAIL,
       subject: `Thanks for contacting us, ${data.name}!`,
       html: `
+<!DOCTYPE html>
 <html>
 <head>
   <style>
@@ -138,17 +142,9 @@ export async function sendContactEmail(data: EmailData): Promise<void> {
       padding: 24px;
       text-align: center;
     }
-    .header h2 {
-      margin: 0;
-      font-size: 22px;
-    }
     .content {
       padding: 30px;
       color: #333;
-    }
-    .message {
-      font-size: 16px;
-      line-height: 1.6;
     }
     .box {
       background-color: #f5f5f5;
@@ -173,21 +169,15 @@ export async function sendContactEmail(data: EmailData): Promise<void> {
       <h2>Thanks for contacting us, ${data.name}!</h2>
     </div>
     <div class="content">
-      <p class="message">
-        We’ve received your message and will get back to you shortly.
-      </p>
-      <p class="message">
-        <strong>Here’s what you sent:</strong><br><br>
-        <strong>Name:</strong> ${data.name}<br>
-        <strong>Email:</strong> ${data.email}<br>
-        <strong>Message:</strong>
-      </p>
+      <p>We’ve received your message and will get back to you shortly.</p>
+      <p><strong>Here’s what you sent:</strong></p>
       <div class="box">${data.message}</div>
-      <p class="message">Best regards,<br>Parbhansh Sharma</p>
+      <p>Best regards,<br><strong>Parbhansh Sharma</strong></p>
     </div>
     <div class="footer">
       This is an automated confirmation email.
-      <strong>If you did not initiate this request, please ignore this message.</strong>
+      <br />
+      If you did not initiate this request, please ignore this message.
     </div>
   </div>
 </body>
