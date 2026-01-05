@@ -140,8 +140,9 @@ Message:
 <!-- MESSAGE -->
 <p style="
   margin:0;
-  padding-top:14px;
-  border-top:1px dashed #bfa888;
+  padding:14px 0;
+  border-top:1px dotted #bfa888;
+  border-bottom:1px dotted #bfa888;
   font-size:15px;
   line-height:1.8;
   white-space:pre-line;
@@ -177,7 +178,8 @@ You can reply directly to this email to respond to the sender.
 </table>
 
 </body>
-</html>`,
+</html>
+`,
 
     });
 
@@ -203,31 +205,20 @@ You can reply directly to this email to respond to the sender.
 
 <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
 <tr>
-<td align="center" style="padding:36px 12px;">
-
-<!--[if gte mso 9]>
-<v:rect xmlns:v="urn:schemas-microsoft-com:vml"
-  fill="true" stroke="false"
-  style="width:720px;height:780px;">
-<v:fill type="frame"
-  src="https://img.freepik.com/free-psd/realistic-rolled-parchment-paper-isolated_23-2151866379.jpg"
-  color="#ffffff" />
-<v:textbox inset="44px,44px,44px,44px">
-<![endif]-->
+<td align="center" style="padding:32px 12px;">
 
 <table width="720" cellpadding="0" cellspacing="0" role="presentation"
 style="
   max-width:720px;
   width:100%;
-  background-image:url('https://img.freepik.com/free-psd/realistic-rolled-parchment-paper-isolated_23-2151866379.jpg');
-  background-repeat:no-repeat;
-  background-size:100% 100%;
+  background:#faf7f2;
+  border:1px solid #e6dccb;
   font-family:'Palatino Linotype','Book Antiqua',Palatino,serif;
   color:#3a2a1a;
 ">
 
 <tr>
-<td style="padding:64px 72px;">
+<td style="padding:36px 42px;">
 
 <!-- TITLE -->
 <h2 style="margin:0 0 8px;text-align:center;font-size:24px;">
@@ -251,17 +242,17 @@ Dear <strong>${data.name}</strong>,
 </p>
 
 <p style="margin:0 0 18px;font-size:15px;line-height:1.7;">
-Thank you for getting in touch. This email confirms that your message
+Thank you for getting in touch. This email is to confirm that your message
 has reached us safely. We appreciate you taking the time to write.
 </p>
 
-<!-- DETAILS (EARLIER STYLE + TRANSPARENT) -->
+<!-- DETAILS -->
 <table width="100%" cellpadding="0" cellspacing="0" role="presentation"
 style="margin:22px 0;">
 <tr>
 <td style="
   padding:14px 16px;
-  background:rgba(255,255,255,0.25);
+  background:#f4eee4;
   border-left:4px solid #c9b08a;
 ">
 <p style="margin:0;font-size:14px;">
@@ -288,8 +279,9 @@ Here’s what you sent:
 <!-- MESSAGE -->
 <p style="
   margin:0;
-  padding-top:14px;
-  border-top:1px dashed #bfa888;
+  padding:14px 0;
+  border-top:1px dotted #bfa888;
+  border-bottom:1px dotted #bfa888;
   font-size:15px;
   line-height:1.8;
   white-space:pre-line;
@@ -333,17 +325,13 @@ If you did not submit this message, you may safely ignore it.
 </tr>
 </table>
 
-<!--[if gte mso 9]>
-</v:textbox>
-</v:rect>
-<![endif]-->
-
 </td>
 </tr>
 </table>
 
 </body>
-</html>`,
+</html>
+`,
     });
 
     return res.status(200).json({ success: true });
