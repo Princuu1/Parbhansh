@@ -11,7 +11,7 @@
     "db:push": "drizzle-kit push"
   },
   "engines": {
-    "node": "20.x"//change node engines
+    "node": "20.x"
   },
   "dependencies": {
      "@vercel/node": "^3.0.0",
