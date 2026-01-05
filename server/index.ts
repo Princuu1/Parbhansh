@@ -5,7 +5,7 @@ import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 import { createServer as createViteServer, createLogger, type InlineConfig } from "vite";
 import { nanoid } from "nanoid";
-import { registerRoutes } from "./routes";
+import { registerRoutes } from "./routes"; // ⬅️ Your API routes including email
 import { Server } from "http";
 
 dotenv.config();
@@ -76,21 +76,6 @@ function serveStatic(app: Express) {
   const app: Express = express();
   const httpServer = new Server(app);
 
-  // 🔁 301 REDIRECT (Render → Vercel) ✅
-  app.use((req: Request, res: Response, next: NextFunction) => {
-    const host = req.headers.host;
-
-    // only redirect traffic coming to onrender.com
-    if (host && host.includes("onrender.com")) {
-      return res.redirect(
-        301,
-        `https://parbhansh.vercel.app${req.originalUrl}`
-      );
-    }
-
-    next();
-  });
-
   // Middleware
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
@@ -119,7 +104,7 @@ function serveStatic(app: Express) {
     next();
   });
 
-  // Register API routes (email, contact, etc.)
+  // Register your email/contact routes
   await registerRoutes(app);
 
   // Error handling
