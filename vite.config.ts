@@ -30,7 +30,7 @@ export default defineConfig({
   root: "client",
 
   build: {
-    // IMPORTANT: output goes to top-level /dist so vercel can serve index.html
+   
     outDir: "../dist",
     emptyOutDir: true
   }
