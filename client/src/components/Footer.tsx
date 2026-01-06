@@ -72,7 +72,7 @@ export default function Footer() {
           </p>
           <div className="flex space-x-4 mt-2">
        <a
-  href="https://www.linkedin.com/in/parbhansh-sharma-a1a2613824"
+  href="https://www.linkedin.com/in/parbhansh-sharma-a1a261382"
   target="_blank"
   rel="noopener noreferrer"
 >
