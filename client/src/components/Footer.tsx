@@ -71,7 +71,7 @@ export default function Footer() {
             Hisar, Haryana, (125033)
           </p>
           <div className="flex space-x-4 mt-2">
-            <Link href="/comingsoon" className="hover:text-[#64FFDA] transition">
+            <Link href="www.linkedin.com/in/parbhansh-sharma-a1a261382" className="hover:text-[#64FFDA] transition">
               <img
                 src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png"
                 alt="LinkedIn"
