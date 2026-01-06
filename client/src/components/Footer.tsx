@@ -71,21 +71,25 @@ export default function Footer() {
             Hisar, Haryana, (125033)
           </p>
           <div className="flex space-x-4 mt-2">
-            <Link href="www.linkedin.com/in/parbhansh-sharma-a1a261382" className="hover:text-[#64FFDA] transition">
-              <img
-                src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png"
-                alt="LinkedIn"
-                className="w-6 h-6"
-              />
-            </Link>
-            <Link href="/comingsoon" className="hover:text-[#64FFDA] transition">
+       <a
+  href="https://www.linkedin.com/in/parbhansh-sharma-a1a2613824"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <img
+    src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png"
+    alt="LinkedIn"
+    className="w-6 h-6"
+  />
+</a>
+  <Link href="/comingsoon" className="hover:text-[#64FFDA] transition">
               <img
                 src="https://cdn-icons-png.flaticon.com/128/919/919847.png"
                 alt="GitHub"
                 className="w-6 h-6"
               />
             </Link>
-            <a href="mailto:Princuu29@gmail.com?subject=Hello%20There&body=I%20wanted%20to%20reach%20out%20regarding%20our%20project.
+            <a href="mailto:princuu29@gmail.com?subject=Hello&body=Hi,%0A%0AI’d%20like%20to%20connect%20with%20you.%0A%0ABest%20regards,
 " className="hover:text-[#64FFDA] transition">
               <img
                 src="https://cdn-icons-png.flaticon.com/128/15047/15047587.png"
