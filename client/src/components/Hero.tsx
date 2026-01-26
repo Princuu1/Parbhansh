@@ -5,7 +5,7 @@ import AnimatedSection from "./AnimatedSection";
 import BackgroundAnimation from "./BackgroundAnimation";
 
 export default function Hero({
-  frontSrc = "/image/photoportfolio.png",
+  frontSrc = "/image/profilepic.jpeg",
   backSrc = "/image/profile-pic (1).png",
 }) {
   const [flipped, setFlipped] = useState(false);
