@@ -104,13 +104,18 @@ export default function Footer() {
                 className="w-6 h-6"
               />
             </Link>
-            <Link href="/comingsoon" className="hover:text-[#64FFDA] transition">
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/15713/15713420.png "
-                alt="Instagram"
-                className="w-6 h-6"
-              />
-            </Link>
+            <a
+  href="https://www.instagram.com/parbhansh_sharma/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="hover:text-[#64FFDA] transition"
+>
+  <img
+    src="https://cdn-icons-png.flaticon.com/512/15713/15713420.png"
+    alt="Instagram"
+    className="w-6 h-6"
+  />
+</a>
             <Link href="/comingsoon" className="hover:text-[#64FFDA] transition">
               <img
                 src="https://cdn-icons-png.flaticon.com/128/2111/2111646.png"
