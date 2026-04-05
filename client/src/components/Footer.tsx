@@ -35,7 +35,7 @@ export default function Footer() {
               {quickLinks.map(({ href, label }) => (
                 <li key={href} className="flex items-center">
                   <img
-                    src="https://cdn-icons-png.flaticon.com/128/10728/10728977.png" // Use your desired PNG icon
+                    src="https://cdn-icons-png.flaticon.com/128/10728/10728977.png"
                     alt="Chevron Right"
                     className="mr-2"
                     style={{ width: '16px', height: '16px' }}
@@ -71,26 +71,25 @@ export default function Footer() {
             Hisar, Haryana, (125033)
           </p>
           <div className="flex space-x-4 mt-2">
-       <a
-  href="https://www.linkedin.com/in/parbhansh-sharma-a1a261382"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <img
-    src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png"
-    alt="LinkedIn"
-    className="w-6 h-6"
-  />
-</a>
-  <Link href="/comingsoon" className="hover:text-[#64FFDA] transition">
+            <a
+              href="https://www.linkedin.com/in/parbhansh-sharma-a1a261382"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png"
+                alt="LinkedIn"
+                className="w-6 h-6"
+              />
+            </a>
+            <Link href="/comingsoon" className="hover:text-[#64FFDA] transition">
               <img
                 src="https://cdn-icons-png.flaticon.com/128/919/919847.png"
                 alt="GitHub"
                 className="w-6 h-6"
               />
             </Link>
-            <a href="mailto:princuu29@gmail.com?subject=Hello&body=Hi,%0A%0AI’d%20like%20to%20connect%20with%20you.%0A%0ABest%20regards,
-" className="hover:text-[#64FFDA] transition">
+            <a href="mailto:princuu29@gmail.com?subject=Hello&body=Hi,%0A%0AI’d%20like%20to%20connect%20with%20you.%0A%0ABest%20regards," className="hover:text-[#64FFDA] transition">
               <img
                 src="https://cdn-icons-png.flaticon.com/128/15047/15047587.png"
                 alt="Email"
@@ -105,17 +104,17 @@ export default function Footer() {
               />
             </Link>
             <a
-  href="https://www.instagram.com/parbhansh_sharma/"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="hover:text-[#64FFDA] transition"
->
-  <img
-    src="https://cdn-icons-png.flaticon.com/512/15713/15713420.png"
-    alt="Instagram"
-    className="w-6 h-6"
-  />
-</a>
+              href="https://www.instagram.com/parbhansh_sharma/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#64FFDA] transition"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/15713/15713420.png"
+                alt="Instagram"
+                className="w-6 h-6"
+              />
+            </a>
             <Link href="/comingsoon" className="hover:text-[#64FFDA] transition">
               <img
                 src="https://cdn-icons-png.flaticon.com/128/2111/2111646.png"
@@ -125,6 +124,11 @@ export default function Footer() {
             </Link>
           </div>
         </div>
+      </div>
+
+      {/* Copyright */}
+      <div className="text-center text-sm mt-6 border-t border-gray-700 pt-4">
+        © 2026 Parbhansh. All rights reserved.
       </div>
     </footer>
   );
