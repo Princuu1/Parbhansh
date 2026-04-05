@@ -5,7 +5,7 @@ import AnimatedSection from "./AnimatedSection";
 import BackgroundAnimation from "./BackgroundAnimation";
 
 export default function Hero({
-  frontSrc = "/image/profilepic.jpeg",
+  frontSrc = "/image/picofme (2)ed.png",
   backSrc = "/image/profile-pic (1).png",
 }) {
   const [flipped, setFlipped] = useState(false);
@@ -16,7 +16,7 @@ export default function Hero({
       <div className="absolute inset-0 z-0">
         <BackgroundAnimation />
       </div>
-
+a
       {/* Content */}
       <div className="max-w-4xl mx-auto text-center relative z-10">
         {/* Profile flip & float */}
