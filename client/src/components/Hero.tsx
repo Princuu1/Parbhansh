@@ -16,7 +16,6 @@ export default function Hero({
       <div className="absolute inset-0 z-0">
         <BackgroundAnimation />
       </div>
-a
       {/* Content */}
       <div className="max-w-4xl mx-auto text-center relative z-10">
         {/* Profile flip & float */}
