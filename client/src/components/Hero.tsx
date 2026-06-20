@@ -5,7 +5,7 @@ import AnimatedSection from "./AnimatedSection";
 import BackgroundAnimation from "./BackgroundAnimation";
 
 export default function Hero({
-  frontSrc = "/image/picofme (2)ed.png",
+  frontSrc = "https://pfpzen.com/wp-content/uploads/2026/06/Unknown-PFP-For-Instagram-2-1024x972.jpg",
   backSrc = "/image/profile-pic (1).png",
 }) {
   const [flipped, setFlipped] = useState(false);
@@ -76,7 +76,7 @@ export default function Hero({
             options={{ loop: true, delay: 50, deleteSpeed: 30 }}
             onInit={(typewriter) => {
               typewriter
-                .typeString('<span style="background: linear-gradient(to right, #64FFDA, #00A3FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Hello, I am Parbhansh</span>')
+                .typeString('<span style="background: linear-gradient(to right, #64FFDA, #00A3FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Hello, I am Parbhansh Sharma</span>')
                 .pauseFor(2000).deleteAll()
                 .typeString('<span style="background: linear-gradient(to right, #FF6B6B, #FF8E53); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">I am a Developer</span>')
                 .pauseFor(2000).deleteAll()
