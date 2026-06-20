@@ -5,7 +5,7 @@ import AnimatedSection from "./AnimatedSection";
 import BackgroundAnimation from "./BackgroundAnimation";
 
 export default function Hero({
-  frontSrc = "https://pfpzen.com/wp-content/uploads/2026/06/Unknown-PFP-For-Instagram-2-1024x972.jpg",
+  frontSrc = "/image/Unknown-PFP-For-Instagram-2-1024x972.png",
   backSrc = "/image/profile-pic (1).png",
 }) {
   const [flipped, setFlipped] = useState(false);
